@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="FerroClick: ferretería online inteligente. Encontrá herramientas y materiales, consultá stock y calculá tu obra.">
+  <title>FerroClick | Ferretería online inteligente</title>
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="topbar">Stock visible · Calculá tu obra · Retiro en locker las 24 horas</div>
+  <header class="header">
+    <a class="brand" href="#inicio" aria-label="FerroClick, inicio"><img src="assets/logo.png" alt="Logo FerroClick"></a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <nav class="nav" id="mainNav">
+      <a href="#catalogo">Productos</a>
+      <a href="#calculadora">Calculá tu obra</a>
+      <a href="#como-funciona">Cómo funciona</a>
+      <button class="cart-button" id="openCart">🛒 Mi carrito <span id="cartCount">0</span></button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-copy">
+        <span class="eyebrow">FERRETERÍA ONLINE INTELIGENTE</span>
+        <h1>¿Obra en casa?<br><em>Arrancá hoy.</em></h1>
+        <p>Encontrá lo que necesitás, consultá el stock y prepará tu compra desde cualquier lugar.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#catalogo">Ver productos <span>→</span></a>
+          <a class="btn btn-outline" href="#calculadora">Calcular materiales</a>
+        </div>
+        <div class="hero-points"><span>✓ Stock visible</span><span>✓ Retiro 24 h</span><span>✓ Atención cercana</span></div>
+      </div>
+      <div class="hero-art" aria-label="Ilustración de herramientas">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="tool-card tool-main"><span>🔧</span><strong>Todo para tu proyecto</strong><small>En un solo lugar</small></div>
+        <div class="floating-tag tag-one">📦 Retiro flexible</div>
+        <div class="floating-tag tag-two">⚡ Compra simple</div>
+        <div class="hero-bolt">FC</div>
+      </div>
+    </section>
+
+    <section class="benefits">
+      <article><span class="benefit-icon">📦</span><div><strong>Retiro en locker 24 h</strong><small>Retirá cuando te quede cómodo.</small></div></article>
+      <article><span class="benefit-icon">📊</span><div><strong>Stock a la vista</strong><small>Consultá disponibilidad antes de comprar.</small></div></article>
+      <article><span class="benefit-icon">🧮</span><div><strong>Calculá tu obra</strong><small>Estimá materiales según tus medidas.</small></div></article>
+    </section>
+
+    <section class="section catalog-section" id="catalogo">
+      <div class="section-heading">
+        <div><span class="eyebrow">NUESTRO CATÁLOGO</span><h2>Encontrá lo que buscás</h2><p>Productos de ferretería para el hogar, el taller y la obra.</p></div>
+        <label class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Buscar herramientas, pintura..." aria-label="Buscar productos"></label>
+      </div>
+      <div class="filters" id="categoryFilters">
+        <button class="filter active" data-category="Todos">Todos</button>
+        <button class="filter" data-category="Herramientas">Herramientas</button>
+        <button class="filter" data-category="Electricidad">Electricidad</button>
+        <button class="filter" data-category="Plomería">Plomería</button>
+        <button class="filter" data-category="Pintura">Pintura</button>
+        <button class="filter" data-category="Tornillería">Tornillería</button>
+      </div>
+      <div class="product-grid" id="productGrid" aria-live="polite"></div>
+      <p class="demo-note">* Catálogo de demostración. Los precios y cantidades son ilustrativos y no representan stock comercial en tiempo real.</p>
+    </section>
+
+    <section class="calculator-section" id="calculadora">
+      <div class="calculator-intro">
+        <span class="eyebrow">HERRAMIENTA GRATUITA</span>
+        <h2>Calculá tu obra</h2>
+        <p>Ingresá las medidas y obtené una estimación inicial de los materiales que podrías necesitar.</p>
+        <div class="calc-tip">💡 <span>Es una estimación orientativa. El consumo real depende de la superficie, el producto y la forma de aplicación.</span></div>
+      </div>
+      <div class="calculator-card">
+        <label for="workType">¿Qué trabajo vas a hacer?</label>
+        <select id="workType">
+          <option value="paint">Pintar una pared</option>
+          <option value="tile">Colocar cerámicos</option>
+          <option value="cable">Instalar cable</option>
+        </select>
+        <label for="areaInput">Superficie o medida (m²)</label>
+        <div class="number-input"><input id="areaInput" type="number" min="1" max="10000" value="20"><span>m²</span></div>
+        <button class="btn btn-primary full" id="calculateBtn">Calcular materiales</button>
+        <div class="calc-result" id="calcResult" aria-live="polite">Completá los datos para ver una estimación.</div>
+      </div>
+    </section>
+
+    <section class="section how-section" id="como-funciona">
+      <div class="section-heading centered"><div><span class="eyebrow">COMPRAR ES MÁS FÁCIL</span><h2>¿Cómo funciona FerroClick?</h2><p>Una experiencia simple desde la búsqueda hasta el retiro.</p></div></div>
+      <div class="steps">
+        <article><span class="step-number">01</span><div class="step-icon">🔎</div><h3>Elegí tus productos</h3><p>Buscá en el catálogo y revisá la disponibilidad.</p></article>
+        <article><span class="step-number">02</span><div class="step-icon">🛒</div><h3>Armá tu pedido</h3><p>Agregá cantidades al carrito y confirmá la compra de prueba.</p></article>
+        <article><span class="step-number">03</span><div class="step-icon">🔐</div><h3>Retirá cuando quieras</h3><p>El prototipo genera un código de seis dígitos para el locker.</p></article>
+      </div>
+      <div class="locker-banner"><div class="locker-symbol">🔐</div><div><span class="eyebrow">RETIRO INTELIGENTE</span><h3>Tu compra te espera en el locker</h3><p>El proyecto propone un casillero con ESP32 que valida un código de retiro de un solo uso.</p></div><span class="locker-pill">Disponible 24 h · Propuesta</span></div>
+    </section>
+
+    <section class="cta-section">
+      <div><span class="eyebrow">FERROCLICK</span><h2>Lo que necesitás para tu obra, a un clic.</h2><p>Una ferretería pensada para que ahorres tiempo.</p></div>
+      <a class="btn btn-light" href="#catalogo">Explorar catálogo →</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-main"><div><img src="assets/logo.png" alt="FerroClick" class="footer-logo"><p>Ferretería online inteligente con stock visible y retiro en locker.</p></div>
+      <div><strong>Secciones</strong><a href="#catalogo">Productos</a><a href="#calculadora">Calculá tu obra</a><a href="#como-funciona">Cómo funciona</a></div>
+      <div><strong>Información</strong><span>Pagos simulados en este prototipo</span><span>Retiro en locker: propuesta del proyecto</span><span>Precios de ejemplo</span></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 FerroClick · Prototipo académico</span><span>Desarrollado por <strong>Valentín Harrison</strong></span></div>
+  </footer>
+
+  <div class="overlay" id="overlay"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Carrito de compras" aria-hidden="true">
+    <div class="drawer-header"><div><span class="eyebrow">TU PEDIDO</span><h2>Mi carrito</h2></div><button class="close-button" id="closeCart" aria-label="Cerrar carrito">×</button></div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-footer"><div class="cart-total"><span>Subtotal</span><strong id="cartTotal">$0</strong></div><p>El retiro en locker se propone sin costo. Envío a domicilio estimado: $6.000 a $12.000 según peso y distancia.</p><button class="btn btn-primary full" id="checkoutBtn">Confirmar pedido</button><button class="text-button full" id="continueShopping">Seguir comprando</button></div>
+  </aside>
+
+  <div class="modal-backdrop" id="checkoutModal">
+    <div class="checkout-modal" role="dialog" aria-modal="true" aria-labelledby="checkoutTitle">
+      <button class="close-button modal-close" id="closeModal" aria-label="Cerrar">×</button>
+      <div class="success-mark">✓</div><span class="eyebrow">PEDIDO DE DEMOSTRACIÓN</span><h2 id="checkoutTitle">¡Pedido generado!</h2>
+      <p>Este prototipo simula la confirmación. No se realizó ningún cobro ni se envió un pedido real.</p>
+      <div class="pickup-code"><small>Tu código de retiro de prueba</small><strong id="pickupCode">000000</strong></div>
+      <p class="code-help">En la versión final, el código será validado por el locker inteligente con ESP32.</p>
+      <button class="btn btn-primary full" id="finishCheckout">Entendido</button>
+    </div>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+</body>
+</html>
